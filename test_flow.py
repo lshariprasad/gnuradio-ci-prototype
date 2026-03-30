@@ -60,3 +60,15 @@ if __name__ == "__main__":
     result = fg.run_test()
 
     print("Test completed successfully.")
+
+import json
+
+result_data = {
+    "samples": len(result),
+    "status": "PASS" if len(result) > 0 else "FAIL"
+}
+
+with open("results.json", "w") as f:
+    json.dump(result_data, f)
+
+print("Results saved to results.json")

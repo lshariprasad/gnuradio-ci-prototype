@@ -9,3 +9,13 @@ This project demonstrates automated testing of GNU Radio flowgraphs using Python
 
 ## Goal
 Foundation for Hardware-in-the-Loop CI system for GNU Radio.
+
+## Automated Testing Output
+
+Each CI run generates structured results:
+
+```json
+{
+  "samples": 5,
+  "status": "PASS"
+}

@@ -21,3 +21,7 @@ jobs:
     - name: Run test
       run: |
         python test_flow.py
+
+    - name: Show results
+      run: |
+        cat results.json
