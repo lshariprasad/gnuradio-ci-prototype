@@ -19,3 +19,13 @@ Each CI run generates structured results:
   "samples": 5,
   "status": "PASS"
 }
+
+## CI Test Scenarios
+
+The system currently validates:
+
+- Basic flowgraph execution
+- Empty output detection
+- Noise signal simulation
+
+Each test runs automatically via GitHub Actions on every commit.

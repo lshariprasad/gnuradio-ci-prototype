@@ -72,3 +72,20 @@ with open("results.json", "w") as f:
     json.dump(result_data, f)
 
 print("Results saved to results.json")
+
+def test_basic_flow():
+    fg = TestFlowgraph()
+    data = fg.run_test()
+    assert len(data) > 0
+
+def test_empty_output():
+    fg = TestFlowgraph()
+    fg.sink.data = lambda: []
+    data = fg.run_test()
+    assert len(data) == 0
+
+def test_noise_simulation():
+    fg = TestFlowgraph()
+    fg.sink.data = lambda: [0.1, -0.2, 0.3]
+    data = fg.run_test()
+    assert len(data) == 3

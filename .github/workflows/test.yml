@@ -25,3 +25,9 @@ jobs:
     - name: Show results
       run: |
         cat results.json
+
+    - name: Install dependencies
+      run: pip install pytest
+
+    - name: Run tests
+      run: pytest
