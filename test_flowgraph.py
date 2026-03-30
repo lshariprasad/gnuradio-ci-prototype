@@ -6,13 +6,13 @@ import time
 
 class FakeTopBlock:
     def start(self):
-        print("Flowgraph started")
+        pass
 
     def stop(self):
-        print("Flowgraph stopped")
+        pass
 
     def wait(self):
-        print("Flowgraph finished")
+        pass
 
 
 class FakeSink:
@@ -30,59 +30,29 @@ class TestFlowgraph(FakeTopBlock):
         self.sink = FakeSink()
 
     def run_test(self):
-        print("Starting flowgraph...")
-
-        # Start flowgraph
         self.start()
-        time.sleep(1)
+        time.sleep(0.1)
         self.stop()
         self.wait()
-
-        # Collect data
-        data = self.sink.data()
-        print(f"Collected {len(data)} samples")
-
-        # PASS / FAIL LOGIC
-        if len(data) > 0:
-            print("TEST PASSED ✅")
-        else:
-            print("TEST FAILED ❌")
-
-        return data
+        return self.sink.data()
 
 
 # -----------------------------
-# MAIN EXECUTION
+# PYTEST TEST CASES
 # -----------------------------
-
-if __name__ == "__main__":
-    fg = TestFlowgraph()
-    result = fg.run_test()
-
-    print("Test completed successfully.")
-
-import json
-
-result_data = {
-    "samples": len(result),
-    "status": "PASS" if len(result) > 0 else "FAIL"
-}
-
-with open("results.json", "w") as f:
-    json.dump(result_data, f)
-
-print("Results saved to results.json")
 
 def test_basic_flow():
     fg = TestFlowgraph()
     data = fg.run_test()
     assert len(data) > 0
 
+
 def test_empty_output():
     fg = TestFlowgraph()
     fg.sink.data = lambda: []
     data = fg.run_test()
     assert len(data) == 0
+
 
 def test_noise_simulation():
     fg = TestFlowgraph()
