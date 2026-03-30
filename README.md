@@ -20,6 +20,8 @@ Each CI run generates structured results:
   "status": "PASS"
 }
 
+```
+
 ## CI Test Scenarios
 
 The system currently validates:
