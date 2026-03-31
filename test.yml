@@ -1,0 +1,9 @@
+- name: Run tests
+  run: |
+    python -m pytest -v
+
+- name: Upload results
+  uses: actions/upload-artifact@v3
+  with:
+    name: hil-results
+    path: results/
