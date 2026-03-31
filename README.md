@@ -1,33 +1,46 @@
-# GNU Radio CI Prototype
+# 🚀 GNU Radio Hardware-in-the-Loop (HIL) CI Prototype
 
-This project demonstrates automated testing of GNU Radio flowgraphs using Python.
+This project demonstrates an automated CI system for GNU Radio flowgraph validation, including simulated Hardware-in-the-Loop (HIL) testing.
 
-## Features
-- Runs a simple flowgraph
-- Captures output samples
-- Logs execution
+## 🔧 Features
 
-## Goal
-Foundation for Hardware-in-the-Loop CI system for GNU Radio.
+- ✅ Automated flowgraph testing
+- ✅ Pytest-based validation
+- ✅ GitHub Actions CI integration
+- ✅ Simulated HIL testing environment
+- ✅ JSON result logging system
+- ✅ CI artifact generation
 
-## Automated Testing Output
-
-Each CI run generates structured results:
+## 📊 Example Output
 
 ```json
 {
-  "samples": 5,
+  "samples": 100,
+  "noise_floor": 0.42,
   "status": "PASS"
 }
-
 ```
+## ⚙️ CI Pipeline
+Every commit:
 
-## CI Test Scenarios
+Runs automated tests
 
-The system currently validates:
+Executes HIL simulation
 
-- Basic flowgraph execution
-- Empty output detection
-- Noise signal simulation
+Generates result logs
 
-Each test runs automatically via GitHub Actions on every commit.
+Uploads artifacts
+
+## 🎯 Future Work
+Real GNU Radio integration
+
+USRP hardware testing
+
+CorteXlab remote execution
+
+Advanced signal validation (BER, SNR)
+
+## 📌 GSoC 2026 Proposal
+This project is part of a proposal for:
+
+"Hardware-in-the-Loop CI for GNU Radio"
