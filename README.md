@@ -44,3 +44,24 @@ Advanced signal validation (BER, SNR)
 This project is part of a proposal for:
 
 "Hardware-in-the-Loop CI for GNU Radio"
+
+
+## 🚀 GSoC 2026 Proposal Work
+
+This repository is an active prototype for my Google Summer of Code 2026 proposal:
+
+**"Hardware-in-the-Loop CI for GNU Radio"**
+
+### Current Progress
+- ✅ Flowgraph automated testing
+- ✅ Pytest-based validation system
+- ✅ GitHub Actions CI pipeline
+- ✅ Simulated HIL (Hardware-in-the-Loop)
+- ✅ JSON result logging + artifacts
+
+### Next Steps
+- 🔜 GNU Radio native integration
+- 🔜 USRP hardware testing
+- 🔜 CorteXlab remote execution
+
+I welcome feedback from the GNU Radio community.
