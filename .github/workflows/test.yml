@@ -10,18 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install pytest
+    - name: Install dependencies
+      run: |
+        pip install pytest
 
-      - name: Run tests
-        run: |
-          pytest -v
+    - name: Run tests
+      run: |
+        python -m pytest -v
+
+    - name: Upload results
+      uses: actions/upload-artifact@v3
+      with:
+        name: hil-results
+        path: results/

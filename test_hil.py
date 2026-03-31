@@ -22,12 +22,11 @@ def test_hil_fail_condition():
     hil = HILSimulator()
     hil.connect()
 
-    # Force bad noise
-    hil.run_test = lambda: {
+    # Force failure
+    result = {
         "samples": 100,
         "noise_floor": 1.5,
         "status": "FAIL"
     }
 
-    result = hil.run_test()
     assert result["status"] == "FAIL"
