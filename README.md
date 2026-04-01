@@ -82,7 +82,14 @@ PASS/FAIL validation
 
 CI workflow integration
 
-🔗 https://github.com/user-attachments/assets/8f1b90f2-8b66-44a6-ab49-3109e3576bb6
+
+https://github.com/user-attachments/assets/fc362802-de59-42df-a01f-13810092addf
+
+
+## Picture 
+
+<img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/0fac7aeb-7eee-4b0a-9c0d-2dbe6e241c11" />
+
 
 ## 🔮 Future Work
 GNU Radio native integration
