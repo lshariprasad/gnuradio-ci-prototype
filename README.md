@@ -1,15 +1,49 @@
 # 🚀 GNU Radio Hardware-in-the-Loop (HIL) CI Prototype
 
-This project demonstrates an automated CI system for GNU Radio flowgraph validation, including simulated Hardware-in-the-Loop (HIL) testing.
+A prototype CI system for automated validation of GNU Radio flowgraphs using a simulated Hardware-in-the-Loop (HIL) approach.
+
+---
+
+## ❗ Problem
+
+GNU Radio currently lacks automated validation of signal processing pipelines in CI environments.
+
+This means:
+- Flowgraphs are not tested automatically
+- Signal quality issues go undetected
+- Hardware-dependent validation is difficult
+
+---
+
+## 💡 Solution
+
+This project introduces a **CI-integrated HIL testing approach** that:
+
+- Simulates SDR signal input
+- Processes data through flowgraphs
+- Computes signal metrics (noise floor)
+- Produces automated PASS/FAIL results
+- Runs fully inside GitHub Actions
+
+---
+
+## 🏗️ Architecture
+Signal Simulator → Flowgraph Processing → Metric Calculation → Result Validation → JSON Output → CI Pipeline
+
+
+
+---
 
 ## 🔧 Features
 
 - ✅ Automated flowgraph testing
 - ✅ Pytest-based validation
 - ✅ GitHub Actions CI integration
-- ✅ Simulated HIL testing environment
-- ✅ JSON result logging system
+- ✅ Simulated HIL testing
+- ✅ JSON result logging
 - ✅ CI artifact generation
+
+---
 
 ## 📊 Example Output
 
@@ -20,55 +54,57 @@ This project demonstrates an automated CI system for GNU Radio flowgraph validat
   "status": "PASS"
 }
 ```
-## ⚙️ CI Pipeline
-Every commit:
 
-Runs automated tests
+## 📌 What this means:
+noise_floor: Signal noise level detected
+
+status: PASS if within acceptable threshold
+
+## ⚙️ CI Pipeline
+On every commit:
+
+Runs automated tests using pytest
 
 Executes HIL simulation
 
-Generates result logs
+Generates JSON result logs
 
-Uploads artifacts
+Uploads artifacts in GitHub Actions
 
-## 🎯 Future Work
-Real GNU Radio integration
+## 🎥 Demo
+👉 This video demonstrates:
 
-USRP hardware testing
+Running the test suite (pytest)
+
+HIL simulation execution
+
+PASS/FAIL validation
+
+CI workflow integration
+
+🔗 https://github.com/user-attachments/assets/8f1b90f2-8b66-44a6-ab49-3109e3576bb6
+
+## 🔮 Future Work
+GNU Radio native integration
+
+Real SDR hardware testing (USRP / PlutoSDR)
 
 CorteXlab remote execution
 
-Advanced signal validation (BER, SNR)
-
-## 🖼️ Picture :
-<img width="1600" height="850" alt="image" src="https://github.com/user-attachments/assets/d4ba4d2a-e6d4-411c-aae1-50d4d0b020d4" />
-
-## 📽️Video :
-
-https://github.com/user-attachments/assets/8f1b90f2-8b66-44a6-ab49-3109e3576bb6
-
+Advanced validation (BER, SNR)
 
 ## 📌 GSoC 2026 Proposal
-This project is part of a proposal for:
+This repository is part of my proposal:
 
 "Hardware-in-the-Loop CI for GNU Radio"
 
-## 🚀 GSoC 2026 Proposal Work
+## 🤝 Feedback
+I would really appreciate feedback from the GNU Radio community on:
 
-This repository is an active prototype for my Google Summer of Code 2026 proposal:
+Improving realism of HIL simulation
 
-**"Hardware-in-the-Loop CI for GNU Radio"**
+Aligning with GNU Radio testing practices
 
-### Current Progress
-- ✅ Flowgraph automated testing
-- ✅ Pytest-based validation system
-- ✅ GitHub Actions CI pipeline
-- ✅ Simulated HIL (Hardware-in-the-Loop)
-- ✅ JSON result logging + artifacts
+Extending toward real hardware integration
 
-### Next Steps
-- 🔜 GNU Radio native integration
-- 🔜 USRP hardware testing
-- 🔜 CorteXlab remote execution
-
-I welcome feedback from the GNU Radio community.
+👨‍💻 Author: Hari Prasad L S
