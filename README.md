@@ -40,11 +40,14 @@ CorteXlab remote execution
 
 Advanced signal validation (BER, SNR)
 
+## Picture :
+<img width="1493" height="982" alt="image" src="https://github.com/user-attachments/assets/edc80f32-fe6d-45f5-806a-f5a44aac4e20" />
+
+
 ## 📌 GSoC 2026 Proposal
 This project is part of a proposal for:
 
 "Hardware-in-the-Loop CI for GNU Radio"
-
 
 ## 🚀 GSoC 2026 Proposal Work
 
