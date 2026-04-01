@@ -13,7 +13,7 @@ class HILSimulator:
         print("Connecting to simulated hardware...")
         time.sleep(0.5)
         self.connected = True
-        print("Connected ✅")
+        print("Connected ")
 
     def disconnect(self):
         print("Disconnected")

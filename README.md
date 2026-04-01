@@ -37,7 +37,7 @@ Signal Simulator → Flowgraph Processing → Metric Calculation → Result Vali
 ## 🔧 Features
 
 - ✅ Automated flowgraph testing
-- ✅ Pytest-based validation
+- ✅ Pytest-based validationQ
 - ✅ GitHub Actions CI integration
 - ✅ Simulated HIL testing
 - ✅ JSON result logging
@@ -91,20 +91,9 @@ Real SDR hardware testing (USRP / PlutoSDR)
 
 CorteXlab remote execution
 
-Advanced validation (BER, SNR)
+Advanced signal validation (BER, SNR)
 
 ## 📌 GSoC 2026 Proposal
 This repository is part of my proposal:
 
 "Hardware-in-the-Loop CI for GNU Radio"
-
-## 🤝 Feedback
-I would really appreciate feedback from the GNU Radio community on:
-
-Improving realism of HIL simulation
-
-Aligning with GNU Radio testing practices
-
-Extending toward real hardware integration
-
-👨‍💻 Author: Hari Prasad L S
