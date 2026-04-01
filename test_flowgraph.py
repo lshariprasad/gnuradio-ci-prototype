@@ -1,6 +1,5 @@
 import time
 
-
 class FakeTopBlock:
     def start(self):
         print("Flowgraph started")
@@ -27,8 +26,7 @@ class FlowgraphRunner(FakeTopBlock):
         self.stop()
         self.wait()
 
-        data = self.sink.data()
-        return data
+        return self.sink.data()
 
 
 def test_basic_flow():

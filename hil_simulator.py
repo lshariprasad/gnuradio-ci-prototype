@@ -4,7 +4,6 @@ import json
 import os
 from datetime import datetime
 
-
 class HILSimulator:
     def __init__(self):
         self.connected = False
@@ -13,23 +12,27 @@ class HILSimulator:
         print("Connecting to simulated hardware...")
         time.sleep(0.5)
         self.connected = True
-        print("Connected ")
+        print("Connected")
 
     def disconnect(self):
+        self.connected = False
         print("Disconnected")
 
-    def run_test(self):
+    def run_test(self, noise_override=None):
         if not self.connected:
             raise Exception("Hardware not connected")
 
         print("Running HIL test...")
 
-        samples = [random.uniform(-1, 1) for _ in range(100)]
-        noise_floor = sum(abs(x) for x in samples) / len(samples)
+        if noise_override is not None:
+            noise_floor = noise_override
+        else:
+            samples = [random.uniform(-1, 1) for _ in range(100)]
+            noise_floor = sum(abs(x) for x in samples) / len(samples)
 
         result = {
             "timestamp": datetime.now().isoformat(),
-            "samples": len(samples),
+            "samples": 100,
             "noise_floor": noise_floor,
             "status": "PASS" if noise_floor < 0.8 else "FAIL"
         }
