@@ -41,7 +41,8 @@ CorteXlab remote execution
 Advanced signal validation (BER, SNR)
 
 ## Picture :
-<img width="1493" height="982" alt="image" src="https://github.com/user-attachments/assets/edc80f32-fe6d-45f5-806a-f5a44aac4e20" />
+<img width="1600" height="850" alt="image" src="https://github.com/user-attachments/assets/d4ba4d2a-e6d4-411c-aae1-50d4d0b020d4" />
+
 
 
 ## 📌 GSoC 2026 Proposal
