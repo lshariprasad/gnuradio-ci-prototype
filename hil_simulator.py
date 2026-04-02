@@ -20,7 +20,7 @@ class HILSimulator:
 
     def run_test(self, noise_override=None):
         if not self.connected:
-            raise Exception("Hardware not connected")
+            raise RuntimeError("Hardware not connected")
 
         print("Running HIL test...")
 
@@ -45,3 +45,30 @@ class HILSimulator:
 
         print(f"Saved result → {filename}")
         return result
+
+
+# CORRECT PLACE (outside class)
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="HIL CI Simulator")
+    parser.add_argument("--threshold", type=float, default=0.8,
+                        help="Noise threshold for PASS/FAIL")
+
+    args = parser.parse_args()
+
+    hil = HILSimulator()
+    hil.connect()
+
+    result = hil.run_test()
+
+    # Apply threshold logic
+    if result["noise_floor"] < args.threshold:
+        result["status"] = "PASS"
+    else:
+        result["status"] = "FAIL"
+
+    print("\nFinal Result:")
+    print(result)
+
+    hil.disconnect()
