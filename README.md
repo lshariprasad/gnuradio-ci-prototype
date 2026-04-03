@@ -128,7 +128,6 @@ The system simulates SDR-like signal samples and computes noise floor as:
 
 This mimics real-world signal validation in CI pipelines.
 
-=======
 Results are stored as:
 
 ```
