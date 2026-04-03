@@ -118,6 +118,17 @@ https://github.com/user-attachments/assets/fc362802-de59-42df-a01f-13810092addf
 <img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/0fac7aeb-7eee-4b0a-9c0d-2dbe6e241c11" />
 
 =======
+## 🔍 How Validation Works
+
+The system simulates SDR-like signal samples and computes noise floor as:
+
+- Average absolute signal value
+- Compared against threshold
+- Produces PASS/FAIL
+
+This mimics real-world signal validation in CI pipelines.
+
+=======
 Results are stored as:
 
 ```
