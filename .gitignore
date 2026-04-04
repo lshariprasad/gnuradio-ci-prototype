@@ -1,5 +1,2 @@
-results/
-__pycache__/
-.pytest_cache/
 results/*.json
 !results/hil_result.json
