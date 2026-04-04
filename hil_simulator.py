@@ -2,7 +2,15 @@ import random
 import time
 import json
 import os
+import logging
 from datetime import datetime
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 class HILSimulator:
     def __init__(self):
@@ -12,24 +20,26 @@ class HILSimulator:
         logging.info("Connecting to simulated hardware...")
         time.sleep(0.5)
         self.connected = True
-        print("Connected")
+        logging.info("Connected")
 
     def disconnect(self):
         self.connected = False
-        print("Disconnected")
+        logging.info("Disconnected")
 
     def run_test(self, noise_override=None):
         if not self.connected:
             raise RuntimeError("Hardware not connected")
 
-        print("Running HIL test...")
+        logging.info("Running HIL test...")
 
+        # Generate noise
         if noise_override is not None:
             noise_floor = noise_override
         else:
             samples = [random.uniform(-1, 1) for _ in range(100)]
             noise_floor = sum(abs(x) for x in samples) / len(samples)
 
+        # Prepare result
         result = {
             "timestamp": datetime.now().isoformat(),
             "samples": 100,
@@ -37,23 +47,30 @@ class HILSimulator:
             "status": "PASS" if noise_floor < 0.8 else "FAIL"
         }
 
+        # Save results
         os.makedirs("results", exist_ok=True)
+        filename = "results/hil_result.json"
 
-        filename = f"results/hil_result_{int(time.time())}.json"
         with open(filename, "w") as f:
             json.dump(result, f, indent=4)
 
-        print(f"Saved result → {filename}")
+        logging.info(f"Noise floor: {noise_floor}")
+        logging.info(f"Saved result → {filename}")
+
         return result
 
 
-# CORRECT PLACE (outside class)
+# CLI execution
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="HIL CI Simulator")
-    parser.add_argument("--threshold", type=float, default=0.8,
-                        help="Noise threshold for PASS/FAIL")
+    parser.add_argument(
+        "--threshold",
+        type=float,
+        default=0.8,
+        help="Noise threshold for PASS/FAIL"
+    )
 
     args = parser.parse_args()
 
@@ -63,12 +80,8 @@ if __name__ == "__main__":
     result = hil.run_test()
 
     # Apply threshold logic
-    if result["noise_floor"] < args.threshold:
-        result["status"] = "PASS"
-    else:
-        result["status"] = "FAIL"
+    result["status"] = "PASS" if result["noise_floor"] < args.threshold else "FAIL"
 
-    print("\nFinal Result:")
-    print(result)
+    logging.info(f"Final Result: {result}")
 
     hil.disconnect()
