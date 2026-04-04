@@ -9,7 +9,7 @@ class HILSimulator:
         self.connected = False
 
     def connect(self):
-        print("Connecting to simulated hardware...")
+        logging.info("Connecting to simulated hardware...")
         time.sleep(0.5)
         self.connected = True
         print("Connected")

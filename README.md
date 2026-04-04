@@ -139,12 +139,27 @@ results/hil_result_<timestamp>.json
 ---
 >>>>>>> d69879b (Enhance HIL CI prototype: add CLI threshold support, improve validation logic, clean repo, and update README)
 
+
+
 ## 🔮 Future Work
 
 * GNU Radio native flowgraph integration
 * Real SDR hardware testing (USRP / PlutoSDR)
 * Remote execution (CorteXlab)
 * Advanced metrics (BER, SNR)
+
+---
+
+## 📜 Logging
+
+The system uses structured logging to track:
+
+- Connection lifecycle
+- Test execution
+- Noise floor computation
+- Result generation
+
+This improves traceability in CI environments.
 
 ---
 
