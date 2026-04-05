@@ -36,6 +36,21 @@ Signal Simulator → Flowgraph Processing → Metric Calculation → Validation 
 
 ---
 
+## 🚀 Why This Matters for GNU Radio
+
+GNU Radio currently lacks automated CI validation for signal pipelines.
+
+This project demonstrates:
+
+* Automated testing of flowgraphs
+* Signal quality validation (noise floor)
+* Hardware-in-the-loop simulation
+* CI-ready validation pipeline
+
+👉 This helps prevent broken signal pipelines and improves reliability.
+
+---
+
 ## 🔧 Features
 
 * ✅ Simulated HIL testing environment
@@ -67,8 +82,6 @@ Signal Simulator → Flowgraph Processing → Metric Calculation → Validation 
 
 ## 🖥️ CLI Usage
 
-Run the simulator with custom threshold:
-
 ```bash
 python hil_simulator.py --threshold 0.5
 ```
@@ -93,57 +106,40 @@ On every commit:
 
 ---
 
+## 🔍 How Validation Works
+
+The system simulates SDR-like signal samples and computes noise floor:
+
+* Average absolute signal value
+* Compared against threshold
+* Produces PASS/FAIL
+
+Results are stored as:
+
+```
+results/hil_result.json
+```
+
+📌 Note: Generated files are excluded via `.gitignore`
+
+---
+
 ## 🎥 Demo
 
 👉 This video demonstrates:
 
-* Running the test suite (`pytest`)
-* HIL simulation execution
+* Running pytest
+* HIL simulation
 * PASS/FAIL validation
-* CI workflow integration
+* CI workflow
 
 🔗 https://github.com/user-attachments/assets/fc362802-de59-42df-a01f-13810092addf
 
 ---
 
-## 📁 Output
-
-<<<<<<< HEAD
-
-https://github.com/user-attachments/assets/fc362802-de59-42df-a01f-13810092addf
-
-
-## Picture 
-
-<img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/0fac7aeb-7eee-4b0a-9c0d-2dbe6e241c11" />
-
-=======
-## 🔍 How Validation Works
-
-The system simulates SDR-like signal samples and computes noise floor as:
-
-- Average absolute signal value
-- Compared against threshold
-- Produces PASS/FAIL
-
-This mimics real-world signal validation in CI pipelines.
-
-Results are stored as:
-
-```
-results/hil_result_<timestamp>.json
-```
-
-📌 Note: Generated files are excluded from version control via `.gitignore`
-
----
->>>>>>> d69879b (Enhance HIL CI prototype: add CLI threshold support, improve validation logic, clean repo, and update README)
-
-
-
 ## 🔮 Future Work
 
-* GNU Radio native flowgraph integration
+* GNU Radio native integration
 * Real SDR hardware testing (USRP / PlutoSDR)
 * Remote execution (CorteXlab)
 * Advanced metrics (BER, SNR)
@@ -152,20 +148,16 @@ results/hil_result_<timestamp>.json
 
 ## 📜 Logging
 
-The system uses structured logging to track:
+Structured logging tracks:
 
-- Connection lifecycle
-- Test execution
-- Noise floor computation
-- Result generation
-
-This improves traceability in CI environments.
+* Connection lifecycle
+* Test execution
+* Noise computation
+* Result generation
 
 ---
 
 ## 📌 GSoC 2026 Proposal
-
-This repository is part of my proposal:
 
 **"Hardware-in-the-Loop CI for GNU Radio"**
 
@@ -175,9 +167,9 @@ This repository is part of my proposal:
 
 I would really appreciate feedback from the GNU Radio community on:
 
-* Improving realism of HIL simulation
-* Aligning with GNU Radio testing workflows
-* Extending toward real hardware integration
+* Improving HIL realism
+* Aligning with GNU Radio workflows
+* Extending to real hardware
 
 ---
 
