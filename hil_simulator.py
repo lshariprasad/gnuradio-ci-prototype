@@ -86,5 +86,3 @@ if __name__ == "__main__":
     logging.info(f"Final Result: {result}")
 
     hil.disconnect()
-
-
